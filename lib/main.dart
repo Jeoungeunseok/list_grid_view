@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:list_grid_view/views/grid_view.dart';
 import 'package:list_grid_view/views/list_view.dart';
 
 void main() {
@@ -20,6 +21,7 @@ class Views extends StatelessWidget {
       routes: {
         '/': (context) => const ViewsetState(),
         '/list_view': (context) => const ListViewSetState(),
+        '/grid_view': (context) => const GridViewSetState(),
       },
     );
   }
@@ -42,13 +44,19 @@ class _ViewsetStateState extends State<ViewsetState> {
                 style: TextStyle(fontSize: 20))),
         body: Center(
             child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/list_view');
                 },
                 child: const Text('listview_page'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/grid_view');
+                },
+                child: const Text('gridview_page'),
               )
             ])));
   }
